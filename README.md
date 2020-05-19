@@ -1,5 +1,5 @@
 # A World Without Strings is Chaos - solutions in various languages
-Programming exercises on strings in J
+Programming exercises on strings
 
 I'm interested in array languages (APL/J/K/Nial...). While searching the Internet for resources on K I stumbled upon some programming exercises on strings by John Earnest:
 
