@@ -5,4 +5,10 @@ I'm interested in array languages (APL/J/K/Nial...). While searching the Interne
 
 [A World Without Strings is Chaos](http://beyondloom.com/blog/strings.html)
 
-After I solved them in K (oK/Kona), I decided to solve them using J. Here's the result.
+After I solved them in K (oK/Kona), I decided to solve them using other languages I know or I am currenlty learning. Here I'll be collecting the results.
+
+
+* K
+* J
+* Red
+* Factor
