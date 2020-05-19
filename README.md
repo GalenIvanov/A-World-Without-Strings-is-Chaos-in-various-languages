@@ -8,7 +8,7 @@ I'm interested in array languages (APL/J/K/Nial...). While searching the Interne
 After I solved them in K (oK/Kona), I decided to solve them using other languages I know or I am currenlty learning. Here I'll be collecting the results.
 
 
-* K
-* J
-* Red
-* Factor
+* K [oK](https://github.com/JohnEarnest/ok)
+* [J](https://www.jsoftware.com/#/READM(https://www.jsoftware.com/#/README)
+* [Red](https://www.red-lang.org/)
+* [Factor](https://factorcode.org/)
