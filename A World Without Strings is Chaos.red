@@ -204,13 +204,9 @@ f13: function [
     str [string!]
     word [string!]
 ][
-    str: split str space
-    forall str [
-        if str/1 = word [
-            parse str/1 [any change skip "X"]
-        ]
-    ]
-    form str
+    xword: copy ""
+    append/dup xword "X" length? word
+    replace/all str word xword
 ]
 
 print "0 - Multiplicity"
