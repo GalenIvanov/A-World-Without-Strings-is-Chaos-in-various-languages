@@ -3,7 +3,7 @@
 
 USING: arrays assocs io kernel math math.ranges math.statistics
 prettyprint sequences sequences.extras sequences.repeating sets
-sorting splitting strings ;
+sorting splitting strings math.combinatorics ;
 IN: A-World-Without-Strings-is-Chaos
 
 ! -----------------------------------------------------------------------------
@@ -58,10 +58,9 @@ IN: A-World-Without-Strings-is-Chaos
 
 : f7 ( s -- s ) sorted-histogram last first 1string ;
 
-: f7all ( s -- s ) sorted-histogram 
-        unzip dup last [ = ] curry map
-        zip [ last ] filter
-        [ first 1string ] map ;
+: f7all ( s -- s ) sorted-histogram
+        unzip dup last swap indices
+        swap nths >string ;
 
 ! -----------------------------------------------------------------------------	 
 ! 8 - esreveR A ecnetneS
