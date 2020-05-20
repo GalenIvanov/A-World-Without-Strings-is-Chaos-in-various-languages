@@ -128,10 +128,10 @@ NB. 13 - TITLE REDACTED
 NB. Given a string x consisting of words separated by spaces (as above), and a string y,
 NB. replace all words in x which are the same as y with a series of xes.
 
-f13 =. 1}.[:;1(' ',])&.>@}.[:(={.)`(,:('X'$~#)&.>)}[;;:@]
-echo 'words' f13 'a few words in a sentence'
-echo 'fish' f13 'one fish two fish'
-echo 'care' f13 'I dont give a care'
+f13=.[`(('X'$~#)&.>@[)@.e."0 1&.;:
+echo 'a few words in a sentence' f13 'words'
+echo 'one fish two fish' f13 'fish'
+echo 'I dont give a care' f13 'care'
 
 NB. 14 - It’s More Fun to Permute
 NB. My ingenious histogram-based filing system has a tiny flaw:
