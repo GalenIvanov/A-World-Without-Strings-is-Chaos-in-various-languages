@@ -86,7 +86,7 @@ NB. Little-endian encoding is such a brilliant idea I want to try applying it to
 NB. Given a string x consisting of words (one or more non-space characters) which are separated by spaces,
 NB. reverse the order of the characters in each word.
 
-f8 =. 1}.[:;[:(' ',|.)&.>;:
+f8 =. |.&.>&.;:
 echo f8 'a few words in a sentence'
 echo f8 'zoop'
 echo f8 'one two three four'
