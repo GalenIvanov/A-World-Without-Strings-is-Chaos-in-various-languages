@@ -59,7 +59,7 @@ IN: A-World-Without-Strings-is-Chaos
 : f7 ( s -- s ) sorted-histogram last first 1string ;
 
 : f7all ( s -- s ) sorted-histogram
-        unzip dup last swap indices
+        unzip [ last ] keep indices
         swap nths >string ;
 
 ! -----------------------------------------------------------------------------	 
