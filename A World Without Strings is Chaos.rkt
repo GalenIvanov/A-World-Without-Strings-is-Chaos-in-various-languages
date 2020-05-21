@@ -31,6 +31,32 @@
     (filter (λ(u)(= (count (λ(y)(char=? u y)) l-str) 1))
             (remove-duplicates l-str))))
 
+; 5 - Musical Chars
+; Given strings x and y, is x a rotation of the characters in y?
+(define (f5 str1 str2 [idx 0])
+  (if (= idx (string-length str1)) 
+      false
+      (if (string=? str1 str2) true
+      (f5 str1
+          (string-append (substring str2 1)
+                         (substring str2 0 1))
+          (add1 idx)))))
+; 6 - Size Matters
+; Given a list of strings x, sort the strings by length, ascending.
+(define (f6 alos)
+  (sort alos (λ (x y)(< (string-length x) (string-length y)))))
+
+; 7 - Popularity Contest
+; Given a string x, identify the character which occurs most frequently.
+; If more than one character occurs the same number of times, you may choose arbitrarily.
+; Is it harder to find all such characters?
+(define (f7 str)
+  (let* ([l-str (string->list str)]
+        [sorted (sort (map (λ(u)(cons u (count (λ(y)(char=? u y)) l-str)))
+                           (remove-duplicates l-str))
+                      (λ (x y)(< (cdr x) (cdr y))))])
+    (map car (filter (λ (x)(= (cdr (last sorted)) (cdr x))) sorted))))
+
 
 ; Tests
 (f0 "fhqwhgads" #\h)
@@ -46,3 +72,11 @@
 (f3 "listen" "silent")
 
 (map f4 '("somewhat heterogenous" "aaabccddefffgg"))
+
+(f5 "foobar" "barfoo")
+(f5 "fboaro" "foobar")
+(f5 "abcde" "deabc")
+
+(f6  '("books" "apple" "peanut" "aardvark" "melon" "pie"))
+
+(map f7 '("abdbbac" "CCCBBBAA"  "CCCBBBBAA" "Mississippi"))
