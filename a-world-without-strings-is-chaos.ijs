@@ -114,7 +114,7 @@ NB. Given a string x consisting of words separated by spaces (as above), and a s
 NB. replace all words in x which are the same as y with a series of xes.
 
 NB. f13=.[`(('X'$~#)&.>@[)@.e."0 1&.;:
-f13=.rplc(;'X'$~#)@]
+f1 3=. rplc(;'X'$~#)@]
 echo 'a few words in a sentence' f13 'words'
 echo 'one fish two fish' f13 'fish'
 echo 'I dont give a care' f13 'care'
