@@ -57,6 +57,40 @@
                       (λ (x y)(< (cdr x) (cdr y))))])
     (map car (filter (λ (x)(= (cdr (last sorted)) (cdr x))) sorted))))
 
+; 8 - esreveR A ecnetneS
+; Given a string x consisting of words (one or more non-space characters)
+; which are separated by spaces, reverse the order of the characters in each word.
+(define (f8 str)
+  (string-join (map (λ (x)(list->string (reverse (string->list x))))
+                    (string-split str))))
+
+; 9 - Compression Session
+; Given a string x and a boolean vector y of the same length,
+; extract the characters of x corresponding to a 1 in y.
+(define (f9 str mask)
+  (list->string (map (λ (x)(string-ref str x))
+                     (indexes-of mask 1))))
+
+; 10 - Expansion Mansion
+; Given a string x and a boolean vector y, spread the characters of x
+; to the positions of 1s in y, filling intervening characters with underscores.
+(define (f10 str mask)
+  (local ((define (spread str mask acc)
+            (cond
+              [(empty? mask) (list->string (reverse acc))]
+              [(= 1 (first mask)) (spread (rest str) (rest mask) (cons (first str) acc))]
+              [else (spread str (rest mask) (cons #\_ acc))])))
+    (spread (string->list str) mask '())))
+
+; 11 - C_ns_n_nts
+; Given a string x, replace all the vowels (a, e, i, o, u, or y) with underscores.
+(define (f11 str [alos '("a" "o" "e" "i" "u" "y" "A" "O" "E" "I" "U" "Y")])
+  (if (empty? alos)
+      str
+      (f11 (string-replace str (first alos) "_") (rest alos))))
+
+   
+  
 
 ; Tests
 (f0 "fhqwhgads" #\h)
@@ -80,3 +114,13 @@
 (f6  '("books" "apple" "peanut" "aardvark" "melon" "pie"))
 
 (map f7 '("abdbbac" "CCCBBBAA"  "CCCBBBBAA" "Mississippi"))
+
+(map f8 '("a few words in a sentence" "zoop" "one two three four"))
+
+(f9 "foobar" '(1 0 0 1 0 1))
+(f9 "embiggener" '(0 0 1 1 1 1 0 0 1 1))
+
+(f10 "fbr" '(1 0 0 1 0 1))
+(f10 "bigger" '(0 0 1 1 1 1 0 0 1 1))
+
+(map f11 '("FLAPJACKS" "Several normal words"))
