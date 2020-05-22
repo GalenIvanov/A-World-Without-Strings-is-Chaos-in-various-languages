@@ -10,7 +10,6 @@
 (define (f1 str)
   (string=? str (list->string (reverse (string->list str)))))
 
-
 ; 2 - Duplicity
 ; Given a string x, produce a list of characters which appear more than once in x.
 (define (f2 str)
@@ -89,10 +88,23 @@
       str
       (f11 (string-replace str (first alos) "_") (rest alos))))
 
-   
-  
+; 12 - Cnsnnts Rdx
+; Given a string x, remove all the vowels entirely.
+(define (f12 str)
+  (list->string (filter (λ (x) (not (member x (string->list "aoeiuyAEUY"))))
+                        (string->list str))))
 
-; Tests
+; 13 - TITLE REDACTED
+; Given a string x consisting of words separated by spaces (as above),
+; and a string y, replace all words in x which are the same as y with a series of xes.
+(define (f13 str word)
+  (string-replace str word (build-string (string-length word) (λ(_)#\X))))
+
+ 
+; +-------+
+; | Tests |
+; +-------+
+
 (f0 "fhqwhgads" #\h)
 (f0 "mississippi" #\s)
 (f0 "life" #\.)
@@ -124,3 +136,8 @@
 (f10 "bigger" '(0 0 1 1 1 1 0 0 1 1))
 
 (map f11 '("FLAPJACKS" "Several normal words"))
+(map f12 '("Several normal words" "FLAPJACKS"))
+
+(f13 "a few words in a sentence" "words")
+(f13 "one fish two fish" "fish")
+(f13 "I don't give a care" "care")
