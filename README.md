@@ -13,3 +13,4 @@ After I solved them in K (oK/Kona), I decided to solve them using other language
 * [Red](https://www.red-lang.org/)
 * [Factor](https://factorcode.org/)
 * [Racket](https://racket-lang.org/)
+* [Icon](https://www2.cs.arizona.edu/icon/)
