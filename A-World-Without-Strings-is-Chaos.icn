@@ -1,0 +1,84 @@
+link strings
+
+# 0 - Multiplicity
+# Given a string x and a character y, how many times does y occur in x?
+procedure f0(str, char)
+    local n, c
+    n := 0
+    every char == !str & n+:=1
+    return n
+end
+
+# Using Unicon's  built-in charcnt(str,char)
+procedure f0_b(str, char)
+    return charcnt(str, char)
+end
+
+# 1 - Trapeze Part
+# Given a string x, is it identical when read forwards and backwards?
+procedure f1(str)
+    local n,i
+    n := 0
+    every str[i:=1 to *str] == str[*str + 1 - i] & n+:= 1
+    return (n = *str & "True") | "False"
+end
+
+# Using Unicon's built-in reverse(str)
+procedure f1_b(str)
+    return (str == reverse(str) & "True") | "False"
+end
+
+# 2 - Duplicity
+# Given a string x, produce a list of characters which appear more than once in x 
+procedure f2(str)
+    local all, dup, c
+    all := ""
+    dup := ""
+    every c := !str do (find(c, all) & dup ||:= c) | all ||:= c
+    return cset(dup)
+end
+
+# 3 - Sort Yourself Out
+# Given strings x and y, do both strings contain the same letters, possibly in a different order?
+procedure f3(s1, s2)
+    local i, k
+    *s1 ~= *s2 & return "False"
+    every i := 1 to *s1 do 
+        k := find(s1[i],s2) & s2[k+:1] := ""
+    return (s2 == "" & "True") | "False"
+end
+
+# 4 - Precious Snowflakes
+# Given a string x, find all the characters which occur exactly once, in the order they appear.
+procedure f4(str)
+    local c, singles := ""
+    every c := !str do 
+        charcnt(str,c) = 1 & singles ||:= c          
+    return singles
+end
+
+
+procedure main()
+    write(" 0 - Multiplicity")
+    write(f0("fhqwhgads", 'h'))
+    write(f0("Mississippi", 's'))
+    write(f0("life", '.'))
+
+    write(" 1 - Trapeze Part?")
+    every word := ! ["racecar", "wasitaratisaw",  "palindrome"] do write(word, "-> ", f1(word))
+
+    write(f1_b("test"))
+    
+    write(" 2 - Duplicit")
+    every word := ! ["applause", "foo",  "baz"] do write(word, "-> ", f2(word))
+
+    write(" 3 - Sort Yourself Out")
+    write(f3("teapot", "toptea"))
+    write(f3("apple", "elap"))
+    write(f3("listen", "silent"))
+
+    write(" 4 - Precious Snowflakes")
+    write(f4("somewhat heterogenous"))
+    write(f4("aaabccddefffgg"))
+    
+end
