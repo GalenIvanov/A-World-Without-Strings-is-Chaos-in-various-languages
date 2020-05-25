@@ -40,6 +40,7 @@
           (string-append (substring str2 1)
                          (substring str2 0 1))
           (add1 idx)))))
+          
 ; 6 - Size Matters
 ; Given a list of strings x, sort the strings by length, ascending.
 (define (f6 alos)
@@ -136,6 +137,7 @@
 (f10 "bigger" '(0 0 1 1 1 1 0 0 1 1))
 
 (map f11 '("FLAPJACKS" "Several normal words"))
+
 (map f12 '("Several normal words" "FLAPJACKS"))
 
 (f13 "a few words in a sentence" "words")
