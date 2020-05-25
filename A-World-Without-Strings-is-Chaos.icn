@@ -34,7 +34,8 @@ procedure f2(str)
     local all, dup, c
     all := ""
     dup := ""
-    every c := !str do (find(c, all) & dup ||:= c) | all ||:= c
+    every c := !str do
+        (find(c, all) & dup ||:= c) | all ||:= c
     return cset(dup)
 end
 
@@ -51,10 +52,20 @@ end
 # 4 - Precious Snowflakes
 # Given a string x, find all the characters which occur exactly once, in the order they appear.
 procedure f4(str)
-    local c, singles := ""
+    local c, singles
+    singles := ""
     every c := !str do 
         charcnt(str,c) = 1 & singles ||:= c          
     return singles
+end
+
+# 5 - Musical Chars
+# Given strings x and y, is x a rotation of the characters in y?
+procedure f5(s1, s2)
+    local i
+    every i := 1 to *s1 do
+        s2 == s1[i+1:0]||s1[1:i+1] & return "True"
+    return "False"
 end
 
 
@@ -80,5 +91,10 @@ procedure main()
     write(" 4 - Precious Snowflakes")
     write(f4("somewhat heterogenous"))
     write(f4("aaabccddefffgg"))
+
+    write(" 5 - Musical Chars")
+    write(f5("foobar", "barfoo"))
+    write(f5("fboaro", "foobar"))
+    write(f5("abcde", "deabc"))
     
 end
