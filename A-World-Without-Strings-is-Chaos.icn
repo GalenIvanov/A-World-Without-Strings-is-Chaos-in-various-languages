@@ -68,6 +68,18 @@ procedure f5(s1, s2)
     return "False"
 end
 
+# 6 - Size Matters
+# Given a list of strings x, sort the strings by length, ascending.
+procedure f6(alos)
+    local i, s, c
+    s := []
+    every i := 1 to *alos do 
+         put(s, [alos[i], *alos[i]])
+    s := sortf(s, 2)
+    every i := 1 to *s do s[i] := s[i][1]
+    return s
+end
+
 
 procedure main()
     write(" 0 - Multiplicity")
@@ -96,5 +108,8 @@ procedure main()
     write(f5("foobar", "barfoo"))
     write(f5("fboaro", "foobar"))
     write(f5("abcde", "deabc"))
+
+    write(" 6 - Size Matters")
+    every write(!f6(["books", "apple", "peanut", "aardvark", "melon", "pie"]))
     
 end
