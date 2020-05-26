@@ -2,6 +2,7 @@ link strings
 
 # 0 - Multiplicity
 # Given a string x and a character y, how many times does y occur in x?
+
 procedure f0(str, char)
     local n, c
     n := 0
@@ -16,6 +17,7 @@ end
 
 # 1 - Trapeze Part
 # Given a string x, is it identical when read forwards and backwards?
+
 procedure f1(str)
     local n,i
     n := 0
@@ -30,6 +32,7 @@ end
 
 # 2 - Duplicity
 # Given a string x, produce a list of characters which appear more than once in x 
+
 procedure f2(str)
     local all, dup, c
     all := ""
@@ -41,6 +44,7 @@ end
 
 # 3 - Sort Yourself Out
 # Given strings x and y, do both strings contain the same letters, possibly in a different order?
+
 procedure f3(s1, s2)
     local i, k
     *s1 ~= *s2 & return "False"
@@ -51,6 +55,7 @@ end
 
 # 4 - Precious Snowflakes
 # Given a string x, find all the characters which occur exactly once, in the order they appear.
+
 procedure f4(str)
     local c, singles
     singles := ""
@@ -61,6 +66,7 @@ end
 
 # 5 - Musical Chars
 # Given strings x and y, is x a rotation of the characters in y?
+
 procedure f5(s1, s2)
     local i
     every i := 1 to *s1 do
@@ -70,6 +76,7 @@ end
 
 # 6 - Size Matters
 # Given a list of strings x, sort the strings by length, ascending.
+
 procedure f6(alos)
     local i, s, w
     s := []
@@ -111,6 +118,18 @@ procedure f8(str)
     return s[1:-1]
 end
 
+# 9 - Compression Session
+# Given a string x and a boolean vector y of the same length,
+# extract the characters of x corresponding to a 1 in y.
+
+procedure f9(str, lst)
+    local i, a
+    a := ""
+    every i := 1 to *lst do
+        lst[i] = 1 & a ||:= str[i]
+    return a
+end
+
 
 procedure main()
     write(" 0 - Multiplicity")
@@ -148,5 +167,9 @@ procedure main()
     
     write(" 8 - esreveR A ecnetneS")
     every write(f8(!["a few words in a sentence", "zoop", "one two three four"]))
+    
+    write(" 9 - Compression Session")
+    write(f9("foobar", [1, 0, 0, 1, 0, 1]))
+    write(f9("embiggener", [0, 0, 1, 1, 1, 1, 0, 0, 1, 1]))
     
 end
