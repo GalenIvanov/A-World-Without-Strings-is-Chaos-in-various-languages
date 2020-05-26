@@ -71,12 +71,13 @@ end
 # 6 - Size Matters
 # Given a list of strings x, sort the strings by length, ascending.
 procedure f6(alos)
-    local i, s, c
+    local i, s, w
     s := []
-    every i := 1 to *alos do 
-         put(s, [alos[i], *alos[i]])
+    every w := !alos do 
+        put(s, [w, *w])
     s := sortf(s, 2)
-    every i := 1 to *s do s[i] := s[i][1]
+    every i := 1 to *s do 
+        s[i] := s[i][1]
     return s
 end
 
