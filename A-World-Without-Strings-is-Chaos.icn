@@ -169,6 +169,14 @@ procedure f13(str, word)
     return replace(str, word, repl("X", *word))
 end
 
+# 14 - It’s More Fun to Permute
+# Given a string x, generate a list of all possible reorderings of the characters in x
+
+procedure f14(str)
+    if *str <= 1 then return str
+    suspend (str[1] :=: !str) || f14(str[2:0])
+end
+
 procedure main()
     write(" 0 - Multiplicity")
     write(f0("fhqwhgads", 'h'))
@@ -224,5 +232,8 @@ procedure main()
     write(f13("a few words in a sentence", "words"));
     write(f13("one fish two fish", "fish"))
     write(f13("I don't give a care","care"))
+    
+    write(" 14 - It’s More Fun to Permute")
+    every write(f14("abcd"))
 
 end
