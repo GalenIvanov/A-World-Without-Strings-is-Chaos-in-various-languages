@@ -147,9 +147,18 @@ end
 # Given a string x, replace all the vowels (a, e, i, o, u, or y) with underscores.
 
 procedure f11(str)
+    local v
     v := 'aoeiuyAOEIUY'
     str ? while tab(upto(v)) & str[&pos+:1]:="_" & move(1)
     return str
+end
+
+procedure f12(str)
+    local s, v
+    s := ""
+    v := 'aoeiuyAOEIUY'
+    str || 'a' ? while s ||:= tab(upto(v)) & move(1) 
+    return s
 end
 
 procedure main()
@@ -200,4 +209,7 @@ procedure main()
     write(" 11 - C_ns_n_nts")
     every write(f11(!["FLAPJACKS", "Several normal words"]))
     
+    write(" 12 - Cnsnnts Rdx")
+    every write(f12(!["Several normal words", "FLAPJACKS"]))
+   
 end
