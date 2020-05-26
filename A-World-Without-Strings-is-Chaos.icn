@@ -153,6 +153,9 @@ procedure f11(str)
     return str
 end
 
+# 12 - Cnsnnts Rdx
+# Given a string x, remove all the vowels entirely.
+
 procedure f12(str)
     local s, v
     s := ""
