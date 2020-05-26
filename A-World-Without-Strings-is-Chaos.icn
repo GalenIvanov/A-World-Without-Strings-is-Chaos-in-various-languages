@@ -130,6 +130,19 @@ procedure f9(str, lst)
     return a
 end
 
+# 10 - Expansion Mansion
+# Given a string x and a boolean vector y, spread the characters of x
+# to the positions of 1s in y, filling intervening characters with underscores.
+
+procedure f10(str, lst)
+    local i, k, a
+    a := ""
+    k := 0
+    every i := 1 to *lst do
+        a ||:= (lst[i] = 1 & str[k+:=1]) | "_" 
+    return a
+end
+
 
 procedure main()
     write(" 0 - Multiplicity")
@@ -171,5 +184,9 @@ procedure main()
     write(" 9 - Compression Session")
     write(f9("foobar", [1, 0, 0, 1, 0, 1]))
     write(f9("embiggener", [0, 0, 1, 1, 1, 1, 0, 0, 1, 1]))
+    
+    write(" 10 - Expansion Mansion")
+    write(f10("fbr", [1, 0, 0, 1, 0, 1]))
+    write(f10("bigger", [0, 0, 1, 1, 1, 1, 0, 0, 1, 1]))
     
 end
