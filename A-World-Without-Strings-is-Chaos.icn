@@ -81,6 +81,23 @@ procedure f6(alos)
     return s
 end
 
+# 7 - Popularity Contest
+# Given a string x, identify the character which occurs most frequently.
+# If more than one character occurs the same number of times,
+# you may choose arbitrarily. Is it harder to find all such characters?
+
+procedure f7(str)
+    local i, t, a, m, c
+    t := table(0)
+    every t[!str] +:= 1
+    a := sort(t,2)
+    m := a[-1][2]
+    t := ""
+    every c := !a do 
+        c[2] = m & t ||:= c[1]
+    return t
+end
+
 
 procedure main()
     write(" 0 - Multiplicity")
@@ -112,5 +129,8 @@ procedure main()
 
     write(" 6 - Size Matters")
     every write(!f6(["books", "apple", "peanut", "aardvark", "melon", "pie"]))
+    
+    write(" 7 - Popularity Contest")
+    every write(f7(!["abdbbac", "CCCBBBAA", "Mississippi"]))
     
 end
