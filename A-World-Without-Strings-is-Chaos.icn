@@ -98,6 +98,19 @@ procedure f7(str)
     return t
 end
 
+# 8 - esreveR A ecnetneS
+# Given a string x consisting of words (one or more non-space characters)
+# which are separated by spaces, reverse the order of the characters in each word.
+
+procedure f8(str)
+    local i, s, sp, t
+    s := ""
+    sp := ' '
+    str || sp ? while t := tab(upto(sp)) & tab(any(sp)) do
+        s ||:= reverse(t) || sp
+    return s[1:-1]
+end
+
 
 procedure main()
     write(" 0 - Multiplicity")
@@ -132,5 +145,8 @@ procedure main()
     
     write(" 7 - Popularity Contest")
     every write(f7(!["abdbbac", "CCCBBBAA", "Mississippi"]))
+    
+    write(" 8 - esreveR A ecnetneS")
+    every write(f8(!["a few words in a sentence", "zoop", "one two three four"]))
     
 end
