@@ -94,7 +94,7 @@ end
 # you may choose arbitrarily. Is it harder to find all such characters?
 
 procedure f7(str)
-    local i, t, a, m, c
+    local t, a, m, c
     t := table(0)
     every t[!str] +:= 1
     a := sort(t,2)
@@ -110,7 +110,7 @@ end
 # which are separated by spaces, reverse the order of the characters in each word.
 
 procedure f8(str)
-    local i, s, sp, t
+    local s, sp, t
     s := ""
     sp := ' '
     str || sp ? while t := tab(upto(sp)) & tab(any(sp)) do
@@ -149,7 +149,7 @@ end
 procedure f11(str)
     local v
     v := 'aoeiuyAOEIUY'
-    str ? while tab(upto(v)) & str[&pos+:1]:="_" & move(1)
+    str ? while tab(upto(v)) & str[&pos+:1] := "_" & move(1)
     return str
 end
 
