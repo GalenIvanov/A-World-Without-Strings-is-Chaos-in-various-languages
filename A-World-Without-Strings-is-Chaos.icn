@@ -143,6 +143,14 @@ procedure f10(str, lst)
     return a
 end
 
+# 11 - C_ns_n_nts
+# Given a string x, replace all the vowels (a, e, i, o, u, or y) with underscores.
+
+procedure f11(str)
+    v := 'aoeiuyAOEIUY'
+    str ? while tab(upto(v)) & str[&pos+:1]:="_" & move(1)
+    return str
+end
 
 procedure main()
     write(" 0 - Multiplicity")
@@ -188,5 +196,8 @@ procedure main()
     write(" 10 - Expansion Mansion")
     write(f10("fbr", [1, 0, 0, 1, 0, 1]))
     write(f10("bigger", [0, 0, 1, 1, 1, 1, 0, 0, 1, 1]))
+    
+    write(" 11 - C_ns_n_nts")
+    every write(f11(!["FLAPJACKS", "Several normal words"]))
     
 end
