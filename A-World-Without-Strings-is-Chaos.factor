@@ -34,9 +34,7 @@ IN: A-World-Without-Strings-is-Chaos
 ! 5 - Musical Chars
 ! Given strings x and y, is x a rotation of the characters in y?
 
-: f5 ( s s -- ? ) dup length [1,b]
-     [ rotate = ] 2with map
-     [ ] any? ;
+: f5 ( s s -- ? ) all-rotations member? ;
 
 ! 6 - Size Matters
 ! Given a list of strings x, sort the strings by length, ascending.	 
