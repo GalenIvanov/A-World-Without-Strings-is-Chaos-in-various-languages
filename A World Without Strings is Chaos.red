@@ -202,12 +202,10 @@ f14: function[
     ][
         collect [
             repeat i length? s [
-                keep collect [
-                    foreach p f14 head remove at copy s i [
-                        keep rejoin [s/:i p]
-                    ]    
-                ]                
-            ]
+                foreach p f14 head remove at copy s i [
+                    keep rejoin [s/:i p]
+                ]    
+            ]                
         ]
     ]
 ]
