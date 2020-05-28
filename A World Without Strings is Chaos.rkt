@@ -172,3 +172,6 @@
 (f13 "a few words in a sentence" "words")
 (f13 "one fish two fish" "fish")
 (f13 "I don't give a care" "care")
+
+(f14 "abc")
+(f14 "WXYZ")
