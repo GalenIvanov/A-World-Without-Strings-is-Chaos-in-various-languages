@@ -121,7 +121,6 @@
 (define (f14 str)
   (local ((define (permute lst)
             (cond
-              [(empty? lst) empty]
               [(empty? (rest lst)) (list lst)]
               [else
                (let split ([l '()][m (first lst)][r (rest lst)])
