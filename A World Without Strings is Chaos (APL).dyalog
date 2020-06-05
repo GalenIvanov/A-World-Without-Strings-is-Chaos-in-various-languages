@@ -43,9 +43,9 @@ f10 ← ('_'@(' '=⊢)){⍺\⍨⍵}
 f11 ← '_'@('aoeiuyAOEIUY'∊⍨⊢)
 f11 ¨ 'FLAPJACKS' 'Several normal words'
 
-f12←{(~⍵∊'aoeiuyAOEIUY')/⍵}
+f12 ← {(~⍵∊'aoeiuyAOEIUY')/⍵}
 f12 ¨ 'Several normal words' 'FLAPJACKS'
 
-f13←{↑{⍺,' ',⍵}/((⊂'X'⍴⍨≢⍵)@((⊂⍵)∘.≡⊢))' '(≠⊆⊢)⍺}
+f13 ← {↑{⍺,' ',⍵}/((⊂'X'⍴⍨≢⍵)@((⊂⍵)∘.≡⊢))' '(≠⊆⊢)⍺}
 'A few words in a sentence' f13 'words'
 'one fish two fish' f13 'fish'
